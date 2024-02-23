@@ -85,9 +85,8 @@ public class lectorQR extends javax.swing.JFrame implements Runnable, ThreadFact
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AsistenciaMenu frame = new AsistenciaMenu();
-        frame.setVisible(true);
-        this.setVisible(false);
+        webcam.close();
+    this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -131,7 +130,7 @@ public class lectorQR extends javax.swing.JFrame implements Runnable, ThreadFact
 
     private void initWebcam() {
         Dimension size = WebcamResolution.QVGA.getSize();
-        webcam = Webcam.getWebcams().get(1); //0 is default webcam
+        webcam = Webcam.getWebcams().get(0); //0 is default webcam
         webcam.setViewSize(size);
 
         panel = new WebcamPanel(webcam);
