@@ -89,7 +89,7 @@ public class menuunitario extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         panelbotonRepresentantes = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         panelbotonAlumnos = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -134,7 +134,6 @@ public class menuunitario extends javax.swing.JFrame {
         dnientrada = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         salida = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -167,7 +166,7 @@ public class menuunitario extends javax.swing.JFrame {
         });
         panelbotonMatriculas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelbotonMatriculasMouseClicked(evt);
+                none(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelbotonMatriculasMouseExited(evt);
@@ -201,8 +200,11 @@ public class menuunitario extends javax.swing.JFrame {
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/repre.png"))); // NOI18N
         panelbotonRepresentantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 40));
 
-        jLabel8.setText("Asistencia");
-        panelbotonRepresentantes.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, -1));
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Asistencia");
+        panelbotonRepresentantes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 80, -1));
 
         jPanel3.add(panelbotonRepresentantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 140, 80));
 
@@ -688,9 +690,6 @@ public class menuunitario extends javax.swing.JFrame {
         });
         jPanel9.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 450));
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -821,9 +820,9 @@ public class menuunitario extends javax.swing.JFrame {
         multimenus.setSelectedIndex(2);
     }//GEN-LAST:event_panelbotonRepresentantesMouseClicked
 
-    private void panelbotonMatriculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseClicked
-        multimenus.setSelectedIndex(3);
-    }//GEN-LAST:event_panelbotonMatriculasMouseClicked
+    private void none(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_none
+        
+    }//GEN-LAST:event_none
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //consultaralumnos();
@@ -1168,14 +1167,15 @@ public class menuunitario extends javax.swing.JFrame {
 
         // Iterar sobre la lista de habilidades y agregarlas a la tabla
         for (Asistencia asistencia : listaAsistencia) {
-            Object[] filaHabilidad = new Object[]{
-                asistencia.getId_asistencia(),
-                asistencia.getDni(),
-                asistencia.getFecha_hora(),
-                asistencia.getLlegada_temprano()
-            };
-            modelo.addRow(filaHabilidad);
-        }
+        String llegada = asistencia.getLlegada_temprano() ? "temprano" : "tarde";
+        Object[] filaHabilidad = new Object[]{
+            asistencia.getId_asistencia(),
+            asistencia.getDni(),
+            asistencia.getFecha_hora(),
+            llegada
+        };
+        modelo.addRow(filaHabilidad);
+    }
 
         asistenciatabla.setModel(modelo);
     }
@@ -1299,6 +1299,7 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1313,8 +1314,6 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
